@@ -1,0 +1,75 @@
+<div>
+  <button class="logout-btn" (click)="logout()">Logout</button>
+</div>
+<!-- Header -->
+<header class="header">
+    <h3 class="title">Sports Events</h3>
+  <h2>Welcome, {{ userName }}</h2>
+    <div class="search-container">
+  <!-- Search Filter -->
+  <input type="text" [value]="filterText()" (input)="onFilterChange($event)" placeholder="Search events..." class="filter-input" />
+  </div>
+</header>
+
+  <!-- Slider Container -->
+  <div class="slider-container">
+
+    <ng-container *ngIf="filteredVideoCards().length > 0; else loading">
+        <div class="slider-wrapper" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+            <div *ngFor="let card of filteredVideoCards(); let i = index" class="event-card slide">
+
+          <div class="event-header">
+            <h3>{{ card.name }}</h3>
+            <span class="event-date">
+              {{ card.dateTime | date: 'medium' }} - {{ card.location }}
+            </span>
+          </div>
+
+          <!-- Video Section -->
+          <div class="video-wrapper">
+              <h4>Watch Highlights</h4>
+                <iframe
+                  width="100%"
+                  height="315"
+                  [src]="card.videoUrl | safe"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+                <p>{{ card.description }}</p>
+            </div>
+        </div>
+        </div>
+
+        <!-- Empty state -->
+        <div *ngIf="filteredVideoCards().length === 0">
+          <p>No events available right now. Check back later!</p>
+        </div>
+      </ng-container>
+    </div>
+
+     <!-- Navigation Buttons -->
+  <button class="nav-button prev" (click)="prevPage()">&lt;</button>
+  <button class="nav-button next" (click)="nextPage()">&gt;</button>
+  <!-- </div> -->
+
+
+  <!-- Loading Spinner -->
+  <ng-template #loading>
+    <div>No events available right now.</div>
+    <div class="spinner"></div>
+  </ng-template>
+
+  <!-- Footer -->
+<footer class="footer">
+    <div class="footer-links">
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Terms</a>
+    </div>
+    <div class="footer-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+  </footer>

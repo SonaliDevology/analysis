@@ -1,0 +1,134 @@
+
+
+.google-signin-button
+  display: inline-flex
+  align-items: center
+  background-color: #ffffff
+  border: 1px solid #dcdcdc
+  border-radius: 4px
+  color: #444
+  font-size: 16px
+  font-weight: 500
+  padding: 10px 16px
+  cursor: pointer
+  transition: background-color 0.3s ease
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+
+.google-signin-button:hover
+  background-color: #f7f7f7
+
+.google-signin-button img
+  width: 20px
+  height: 20px
+  margin-right: 10px
+
+*
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+
+body, html
+  height: 100%
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
+.login-wrapper
+  display: flex
+  align-items: center
+  justify-content: center
+  min-height: 100vh
+  padding: 20px
+
+.login-container
+  background: #ffffff
+  padding: 40px 30px
+  border-radius: 20px
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2)
+  width: 100%
+  max-width: 400px
+  text-align: center
+
+h2
+  margin-bottom: 24px
+  color: #333
+
+form
+  display: flex
+  flex-direction: column
+
+input
+  margin: 10px 0
+  padding: 14px
+  border-radius: 8px
+  border: none
+  background: #f0f0f0
+  font-size: 16px
+
+button
+  padding: 14px
+  border-radius: 8px
+  border: none
+  background-color: #4e54c8
+  color: white
+  font-size: 16px
+  margin-top: 15px
+  cursor: pointer
+  transition: background-color 0.3s ease
+
+button:hover 
+  background-color: #3a41b3
+
+.divider
+  margin: 20px 0
+  position: relative
+  font-size: 14px
+  color: #888
+
+.divider::before,
+.divider::after
+  content: ""
+  position: absolute
+  top: 50%
+  width: 40%
+  height: 1px
+  background: #ccc
+
+.divider::before
+  left: 0
+
+.divider::after 
+  right: 0
+
+.google-signin-button 
+  display: flex
+  justify-content: center
+
+@media screen and (max-width: 480px)
+  .login-container
+    padding: 30px 20px
+
+  input, button 
+    font-size: 14px
+
+.video-background
+  position: fixed
+  top: 0
+  left: 0
+  min-width: 100%
+  min-height: 100%
+  overflow: hidden
+  z-index: -1
+
+#bgVideo
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  min-width: 100%
+  min-height: 100%
+  object-fit: cover
+  z-index: -1
+  pointer-events: none /* Prevent any interaction */
+
+
+.google-bt 
+  display: inline-flex
